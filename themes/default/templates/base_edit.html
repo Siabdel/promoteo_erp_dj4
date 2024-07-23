@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load details %}
+
+{% block meta_title %}
+{% if object %}
+{% model_name object as model %}
+{% else %}
+{% model_name form.instance as model %}
+{% endif %}
+{% if object.pk %}
+{% blocktrans %}Edit {{ model }}{% endblocktrans %}
+{% else %}
+{% blocktrans %}Add {{ model }}{% endblocktrans %}
+{% endif %}
+{% endblock %}
+
+{% block title %}
+<div class="title">
+    {% if object %}
+    {% model_name object as model %}
+    {% else %}
+    {% model_name form.instance as model %}
+    {% endif %}
+    {% if object.pk %}
+    <h1>{{ object|striptags|capfirst }}</h1>
+    <h2>{% blocktrans %}Edit {{ model }}{% endblocktrans %}</h2>
+    {% else %}
+    <h1>{% blocktrans %}Add {{ model }}{% endblocktrans %}</h1>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block main %}
+{% block editformheader %}
+<form method="post" action="{{ request.path }}{% if next %}?next={{ next }}{% endif %}">
+{% endblock %}
+    {% csrf_token %}
+    {% block editform %}
+    <table class="properties">
+        {% property_table form %}
+    </table>
+    {% endblock %}
+    {% block buttons %}
+    {% include "elements/save_button.html" %}
+    {% include "elements/cancel_button.html" %}
+    {% endblock %}
+</form>
+{% endblock %}

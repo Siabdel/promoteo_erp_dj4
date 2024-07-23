@@ -1,0 +1,23 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Products' 'product_list' %}
+    {% add_crumb object.product object.product.get_absolute_url %}
+    {% add_crumb 'Supplies' 'product_supplies' object.product.pk %}
+    {% if object.pk %}
+    {% add_crumb object.supplier object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "[['supplier', 'supply_method'], ['name', 'code'], ['purchase_price', 'purchase_currency'], ['max_purchase_discount', 'purchase_tax'], ['minimal_quantity', 'lead_time'], ['warranty_period', 'end_of_life']]" %}
+</table>
+{% endblock %}

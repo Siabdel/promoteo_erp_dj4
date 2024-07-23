@@ -1,0 +1,30 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block extrahead %}
+{{ pform.media }}
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Users' 'user_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "['username', 'email', ['password1', 'password2'], ['first_name', 'last_name']]" %}
+    {% if pform %}
+    {% property_table pform "[['language', 'timezone']]" %}
+    {% endif %}
+    {% property_table form "['is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions']" %}
+</table>
+{% endblock %}

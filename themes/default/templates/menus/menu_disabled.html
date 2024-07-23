@@ -1,0 +1,13 @@
+{% extends "menus/menu.html" %}
+
+{% load i18n %}
+{% load menu %}
+
+{% block menulink %}
+<li{% matchlink link request.get_full_path %} id="{{ link.slug|escape }}-link">
+    <span>{% trans link.title|escape %}</span>
+    {% if link.submenu %}
+    {% menu link.submenu.slug %}
+    {% endif %}
+</li>
+{% endblock %}

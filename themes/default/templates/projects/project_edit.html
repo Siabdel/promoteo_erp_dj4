@@ -1,0 +1,21 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Projects' 'project_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "['title', ['code', 'status'], 'description', 'manager', 'categories', 'tags', 'allow_comments']" %}
+</table>
+{% endblock %}

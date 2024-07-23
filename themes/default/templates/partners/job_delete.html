@@ -1,0 +1,12 @@
+{% extends "base_delete.html" %}
+
+{% load breadcrumbs %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Partners' 'partner_list' %}
+    {% add_crumb object.partner object.partner.get_absolute_url %}
+    {% add_crumb 'Contacts' 'partner_contacts' object.partner.pk %}
+    {% add_crumb object 'contact_jobs' object.contact.pk %}
+    {% add_crumb 'Delete' %}
+{% endblock %}

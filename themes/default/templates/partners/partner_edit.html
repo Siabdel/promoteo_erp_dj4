@@ -1,0 +1,25 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Partners' 'partner_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% if object.pk %}
+    {% property_table form "[['name', 'is_managed'], ['assignee', 'lead_status'], ['is_customer', 'is_supplier'], ['vat_number', 'ssn'], ['language', 'timezone'], ['url', 'email'], ['main_address', 'main_phone_number'], ['terms_of_payment', 'currency'], 'description', 'categories', 'tags', 'allow_comments']" %}
+    {% else %}
+    {% property_table form "[['name', 'is_managed'], ['assignee', 'lead_status'], ['is_customer', 'is_supplier'], ['vat_number', 'ssn'], ['language', 'timezone'], ['url', 'email'], ['terms_of_payment', 'currency'], 'description', 'categories', 'tags', 'allow_comments']" %}
+    {% endif %}
+</table>
+{% endblock %}

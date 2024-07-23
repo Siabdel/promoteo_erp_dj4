@@ -1,0 +1,68 @@
+=========================================================
+PROMETEO - Free your business
+
+---------------------------------------------------------
+(c) 2011, Emanuele Bertoldi <emanuele.bertoldi@gmail.com>
+=========================================================
+
+
+INTRODUCTION
+============
+
+Prometeo is an open-source, user-oriented, ERP system based on Django framework.
+
+http://code.google.com/p/prometeo-erp/
+
+
+PRE-REQUISITES
+==============
+
+Make sure you have the following pre-requisites installed:
+
+ * python >= 2.6 (required)
+   http://www.python.org
+
+ * pytz >= 2011h (required)
+   http://pytz.sourceforge.net/
+
+ * python-markdown >= 2.0 (required)
+   http://www.freewisdom.org/projects/python-markdown
+
+ * xhtml2pdf >= 0.0.3 (required)
+   http://www.xhtml2pdf.com
+
+ * icalendar >= 2.2 (required)
+   http://pypi.python.org/pypi/icalendar
+
+ * django >= 1.3.1 (required)
+   http://www.djangoproject.com
+
+ * south >= 0.7.3 (optional)
+   http://south.aeracode.org/
+
+ * apache2 (optional)
+   http://httpd.apache.org
+
+ * mod_wsgi (optional)
+   http://code.google.com/p/modwsgi
+
+INSTALLATION
+============
+
+ WARNING: at the moment the package MUST be installed in a folder called "prometeo".
+
+ 1. cp settings/base.py.tmpl settings/base.py
+ 
+ 2. Edit the settings/base.py content.
+ 
+ 3. It's time to create the DB schema (you need to use the --all option if you're using South):
+
+    python manage.py syncdb (--all)
+   
+ 4. To test the installation, run:
+ 
+   python manage.py runserver
+   
+   Then open the <127.0.0.1:8000> address in your browser.
+ 
+ 5. To use Apache + mod_wsgi, follow the instructions in <core/apache/README>.

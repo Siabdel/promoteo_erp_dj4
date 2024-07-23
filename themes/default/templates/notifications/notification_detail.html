@@ -1,0 +1,36 @@
+{% extends "base_detail.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Users' 'user_list' %}
+    {% add_crumb object.user object.user.get_absolute_url %}
+    {% add_crumb 'Notifications' 'notification_list' object.user.username %}
+    {% add_crumb object %}
+{% endblock %}
+
+{% block title %}
+<div class="title">
+    <h1>{{ object|striptags|capfirst }}</h1>
+</div>
+{% endblock %}
+
+{% block objectactions %}
+{% if object.pk in obj_perms.notifications.delete_notification %}
+<li class="delete"><a title="{% trans 'Delete' %}" href="{% url notification_delete object.user.username object.pk %}">{% trans 'Delete' %}</a></li>
+{% endif %}
+{% if perms.notifications.view_notification %}
+<li class="all"><a title="{% trans 'All' %}" href="{% url notification_list object.user.username %}">{% trans 'All' %}</a></li>
+{% endif %}
+{% endblock %}
+
+{% block section %}
+<div class="details">
+    <table class="properties">
+        {% property_table object "[['created', 'read'], 'description']" %}
+    </table>
+</div>
+{% endblock %}

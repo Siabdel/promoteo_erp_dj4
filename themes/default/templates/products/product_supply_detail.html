@@ -1,0 +1,36 @@
+{% extends "base_detail.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Products' 'product_list' %}
+    {% add_crumb object.product object.product.get_absolute_url %}
+    {% add_crumb 'Supplies' 'product_supplies' object.product.pk %}
+    {% add_crumb object.supplier %}
+{% endblock %}
+
+{% block objectactions %}
+{% if perms.products.add_supply %}
+<li class="add"><a title="{% trans 'Add' %}" href="{% url product_add_supply object.product.pk %}">{% trans 'Add' %}</a></li>
+{% endif %}
+{% if perms.products.change_supply %}
+<li class="edit"><a title="{% trans 'Edit' %}" href="{% url product_edit_supply object.product.pk object.pk %}">{% trans 'Edit' %}</a></li>
+{% endif %}
+{% if perms.products.delete_supply %}
+<li class="delete"><a title="{% trans 'Delete' %}" href="{% url product_delete_supply object.product.pk object.pk %}">{% trans 'Delete' %}</a></li>
+{% endif %}
+{% if perms.products.change_supply %}
+<li class="all"><a title="{% trans 'All' %}" href="{% url product_supplies object.product.pk %}">{% trans 'All' %}</a></li>
+{% endif %}
+{% endblock %}
+
+{% block sections %}
+<div class="details">
+    <table class="properties">
+        {% property_table object "[['name', 'code'], ['supplier', 'supply_method'], ['purchase_price', 'purchase_currency'], ['max_purchase_discount', 'purchase_tax'], ['minimal_quantity', 'lead_time'], ['warranty_period', 'end_of_life']]" %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "documents/document_edit.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block extrahead %}
+{{ dform.media }}
+{{ form.media }}
+{{ formset.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Delivery notes' 'deliverynote_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table dform "['code', ['owner', 'status']]" %}
+    {% property_table form "[['invoice_addressee', 'delivery_addressee'], ['order_ref_number', 'order_ref_date'], 'means_of_delivery', ['reason_of_shipping', 'terms_of_shipping'], ['goods_appearance', 'delivery_date'], 'notes']" %}
+    {% property_table dform "['categories', 'tags']" %}
+</table>
+{{ formset.management_form }}
+<table class="formset">
+    {% for form in formset %}
+    {% if forloop.counter0 == 0 %}
+    <tr>
+        {% for field in form.visible_fields %}
+        {% if not forloop.last %}
+        <th {% if field.name == 'notes' %}class="text"{% else %}class="char"{% endif %}>{{ field.label }}</th>
+        {% endif %}
+        {% endfor %}
+        <th class="actions">{% trans "Delete?" %}</th>
+    </tr>
+    {% endif %}
+    <tr>
+        {% for field in form.visible_fields %}
+        <td{% if field.css_classes %} class="{{ field.css_classes }}"{% endif %}>
+            {% if forloop.counter0 == 0 %}
+            {% for hiddenfield in form.hidden_fields %}
+            {{ hiddenfield }}
+            {% endfor %}
+            {% endif %}
+            {{ field }}
+            {{ field.errors }}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

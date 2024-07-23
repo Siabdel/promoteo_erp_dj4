@@ -1,0 +1,57 @@
+{% load i18n %}
+
+<table class="events">
+    {% for week, week_events in calendar.items %}
+    {% if forloop.first %}
+    <tr>
+        {% for week_day, day_events in week_events.items %}
+        <th>{{ week_day|date:"D" }}</th>
+        {% endfor %}
+    </tr>
+    {% endif %}
+    <tr>
+        {% for day, day_events in week_events.items %}
+        {% if day_events.values|join:""|cut:"[]" %}
+        <td class="{% if day == day.today %}today_with_events{% else %}with_events{% endif %}">
+        {% else %}
+        <td{% if day == day.today %} class="today"{% endif %}>
+        {% endif %}
+            <span class="daynr">
+                {% if forloop.counter >= 6 %}
+                <span class="weekend">
+                {% endif %}
+                    {% if day.month != month %}
+                    <span class="disabled">{{ day.day }}</span>
+                    {% else %}
+                    {% with day_link="/events/add" %}
+                    {% if day_link %}
+                    <a title="{% trans 'Add' %}" href="{{ day_link }}/{{ day.year }}/{{ day.month }}/{{ day.day }}/">{{ day.day }}</a>
+                    {% else %}
+                    {{ day.day }}
+                    {% endif %}
+                    {% endwith %}
+                    {% endif %}
+                {% if forloop.counter >= 6 %}
+                </span>
+                {% endif %}
+            </span>
+            {% if day.weekday == 0 %}
+            <span class="weeknr">({{ day|date:"W" }})</span>
+            {% endif %}
+
+            {% if day_events.values|join:""|cut:"[]" %}
+            <ul>
+                {% for hour_events in day_events.values %}
+                {% for event in hour_events %}
+                {% with event.title|striptags as event_title %}
+                <li><a title="{{ event_title }}" href="{{ event.get_absolute_url }}">{{ event.start.time }}</a></li>
+                {% endwith %}
+                {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>

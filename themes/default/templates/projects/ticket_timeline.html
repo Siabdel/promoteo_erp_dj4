@@ -1,0 +1,21 @@
+{% extends "projects/ticket_detail.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+
+{% block meta_title %}{% trans "Timeline" %}{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Projects' 'project_list' %}
+    {% add_crumb object.project object.project.get_absolute_url %}
+    {% add_crumb 'Tickets' 'ticket_list' object.project.code %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Timeline' %}
+{% endblock %}
+
+{% block subtitle %}{% trans "Timeline" %}{% endblock %}
+
+{% block section %}
+{% include "elements/timeline.html" %}
+{% endblock %}

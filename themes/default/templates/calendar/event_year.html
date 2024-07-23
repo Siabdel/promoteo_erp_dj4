@@ -1,0 +1,30 @@
+{% extends "calendar/base.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load calendar %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Events' %}
+{% endblock %}
+
+{% block subtitle %}{% trans "Year" %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/calendar.css" type="text/css" media="all"/>
+{% endblock %}
+
+{% block section %}
+<div class="calendar">
+    <div class="year">
+        <div class="navigator">
+            <span class="previous"><a href="{% url event_year previous_year.year %}">&lt;&lt;</a></span>
+            <span class="current"><h3>{{ current_day.year }}</h3></span>
+            <span class="next"><a href="{% url event_year next_year.year %}">&gt;&gt;</a></span>
+        </div>
+        {% year_calendar current_day.year object_list %}
+    </div>
+</div>
+{% endblock %}

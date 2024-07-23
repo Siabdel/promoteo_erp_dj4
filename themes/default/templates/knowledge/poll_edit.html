@@ -1,0 +1,55 @@
+{% extends "base_edit.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block extrahead %}
+{{ form.media }}
+{{ formset.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Polls' '/polls/' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "[['title', 'language'], 'description', 'due_date', 'categories', 'tags', 'allow_comments']" %}
+</table>
+{{ formset.management_form }}
+<table class="formset">
+    {% for form in formset %}
+    {% if forloop.counter0 == 0 %}
+    <tr>
+        {% for field in form.visible_fields %}
+        {% if not forloop.last %}
+        <th class="{% if field.name == 'description' %}text{% else %}number{% endif %}">{{ field.label }}</th>
+        {% endif %}
+        {% endfor %}
+        <th class="actions">{% trans "Delete?" %}</th>
+    </tr>
+    {% endif %}
+    <tr>
+        {% for field in form.visible_fields %}
+        <td{% if field.css_classes %} class="{{ field.css_classes }}"{% endif %}>
+            {% if forloop.counter0 == 0 %}
+            {% for hiddenfield in form.hidden_fields %}
+            {{ hiddenfield }}
+            {% endfor %}
+            {% endif %}
+            {{ field }}
+            {{ field.errors }}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

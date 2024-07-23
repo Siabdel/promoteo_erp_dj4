@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load region %}
+
+<div class="dashboard">
+    <div class="actions">
+        <ul>
+            {% if perms.widgets.add_widget %}
+            <li class="add"><a title="{% trans 'Add widget' %}" href="{% url widget_add dashboard.slug %}">{% trans 'Add' %}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="region">
+        {% if dashboard.widgets.all %}
+        {% region dashboard.slug %}</div>
+        {% else %}
+        <p class="disabled">{% trans "No widgets." %}</p>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,24 @@
+=========================================================
+PROMETEO - Free your business
+
+---------------------------------------------------------
+(c) 2011, Emanuele Bertoldi <emanuele.bertoldi@gmail.com>
+=========================================================
+
+
+INTRODUCTION
+============
+
+This document describes how to use Prometeo and Apache Web Server together.
+
+
+INSTRUCTIONS
+============
+
+1. Includes the "prometeo.conf" file inside your virtual host configuration.
+
+2. Open it and replace <PROMETEO_PATH> with your local Prometeo installation root.
+
+3. From the <PROMETEO_PATH> execute:
+
+   python manage.py collectstatic

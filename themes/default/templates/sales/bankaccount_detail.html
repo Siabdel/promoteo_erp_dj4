@@ -1,0 +1,36 @@
+{% extends "base_detail.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load region %}
+{% load menu %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Bank accounts' 'bankaccount_list' %}
+    {% add_crumb object %}
+{% endblock %}
+
+{% block objectactions %}
+{% if perms.sales.add_bankaccount %}
+<li class="add"><a title="{% trans 'Add' %}" href="{% url bankaccount_add %}">{% trans 'Add' %}</a></li>
+{% endif %}
+{% if object.pk in obj_perms.sales.change_bankaccount %}
+<li class="edit"><a title="{% trans 'Edit' %}" href="{% url bankaccount_edit object.pk %}">{% trans 'Edit' %}</a></li>
+{% endif %}
+{% if object.pk in obj_perms.sales.delete_bankaccount %}
+<li class="delete"><a title="{% trans 'Delete' %}" href="{% url bankaccount_delete object.pk %}">{% trans 'Delete' %}</a></li>
+{% endif %}
+{% if perms.sales.view_bankaccount %}
+<li class="all"><a title="{% trans 'All' %}" href="{% url bankaccount_list %}">{% trans 'All' %}</a></li>
+{% endif %}
+{% endblock %}
+
+{% block sections %}
+<div class="details">
+    <table class="properties">
+        {% property_table object "[['bank_name', 'bic'], ['owner', 'iban']]" %}
+    </table>
+</div>
+{% endblock %}

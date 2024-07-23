@@ -1,0 +1,27 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block extrahead %}
+{{ pform.media }}
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Movements' 'movement_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "[['origin', 'destination']]" %}
+    {% property_table pform "['product', ['quantity', 'unit_price'], ['tax', 'discount'], 'notes']" %}
+</table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_delete.html" %}
+
+{% load breadcrumbs %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Users' 'user_list' %}
+    {% add_crumb object_user object_user.get_absolute_url %}
+    {% add_crumb 'Bookmarks' 'bookmark_list' object_user.username %}
+    {% add_crumb object.title object.get_absolute_url %}
+    {% add_crumb 'Delete' %}
+{% endblock %}

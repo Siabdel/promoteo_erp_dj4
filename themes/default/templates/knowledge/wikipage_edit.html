@@ -1,0 +1,23 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Wiki' '/wiki/' %}
+    {% if object.slug %}
+    {% add_crumb object object.get_absolute_url %}
+    {% endif %}
+    {% if object.pk %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table form "[['slug', 'language'], 'body', 'categories', 'tags', 'allow_comments']" %}
+</table>
+{% endblock %}

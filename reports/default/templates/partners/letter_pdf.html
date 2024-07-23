@@ -1,0 +1,75 @@
+{% extends "report_base.html" %}
+
+{% load i18n %}
+{% load details %}
+
+{% block meta_title %}{{ document|striptags|capfirst }}{% endblock %}
+
+{% block style %}
+@page {
+  margin: 1cm 2cm;
+}
+
+body {
+    color: #1f1f1f;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-size: 10px;
+}
+
+a {
+    text-decoration: normal;
+    color: #1f1f1f;
+}
+
+.disabled { display: none; }
+
+hr { display: none; }
+
+table { margin: 20px 0; }
+
+td, th {
+    padding: 5px 5px 0;
+    text-align: left;
+}
+ 
+#header { text-align: right; }
+
+#header h2 { font-size: 1.5em; }
+{% endblock %}
+
+{% block header %}
+<div id="header">
+    <h2>{{ document.content_object.target }}<h2>
+    <p>
+        {{ document.content_object.target.main_address|default:"" }}
+        <br/>
+        {{ document.content_object.target.vat_number|default:"" }}
+        <br/>
+        {{ document.content_object.target.main_phone_number|default:"" }}
+        <br/>
+        {{ document.content_object.target.url|default:"" }} {{ document.content_object.target.email|default:"" }}
+        {% if document.content_object.to %}
+        <br/>
+        <p style="text-align: right;">{% blocktrans with to=document.content_object.to %}To the attention of {{ to }}{% endblocktrans %}</p>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="details">
+    <p>
+        {% trans "Our ref:" %} {{ document.code }}
+        <br/>
+        {% if document.content_object.target_ref_number %}
+        {% trans "Your ref:" %} {{ document.content_object.target_ref_number }}
+        <br/>
+        {% endif %}
+        {% trans "Object:" %} {{ document.content_object.subject }}
+    </p>
+
+    <div style="text-align: right;">{{ document.content_object.location }}, {{ document.content_object.date }}</div>
+
+    <div>{{ document.content_object.body|safe }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_delete.html" %}
+
+{% load breadcrumbs %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Products' 'product_list' %}
+    {% add_crumb object.product object.product.get_absolute_url %}
+    {% add_crumb 'Supplies' 'product_supplies' object.product.pk %}
+    {% add_crumb object.supplier object.get_absolute_url %}
+    {% add_crumb 'Delete' %}
+{% endblock %}

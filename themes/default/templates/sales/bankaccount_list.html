@@ -1,0 +1,29 @@
+{% extends "sales/base.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block meta_title %}{% trans "Bank accounts" %}{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Bank accounts' %}
+{% endblock %}
+
+{% block subtitle %}{% trans "Bank accounts" %}{% endblock %}
+
+{% block section %}
+{% include 'elements/filterbox.html' %}
+<div class="actions">
+    <ul>
+        {% if perms.sales.add_bankaccount %}
+        <li class="add"><a title="{% trans 'Add' %}" href="{% url bankaccount_add %}">{% trans 'Add' %}</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div class="details">
+    {% detail_table object_list field_names %}
+    {% include 'elements/paginator.html' %}
+</div>
+{% endblock %}

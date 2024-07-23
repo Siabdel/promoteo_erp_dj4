@@ -1,0 +1,264 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-06 16:22+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: forms.py:58 forms.py:76
+msgid "Origin and destination warehouses can't be the same."
+msgstr "I magazzini di origine e di destinazione non possono essere lo stesso."
+
+#: models.py:35
+msgid "name"
+msgstr "nome"
+
+#: models.py:36
+msgid "owner"
+msgstr "proprietario"
+
+#: models.py:37
+msgid "address"
+msgstr "indirizzo"
+
+#: models.py:38
+msgid "manager"
+msgstr "responsabile"
+
+#: models.py:39 models.py:79
+msgid "Created by"
+msgstr "Creato da"
+
+#: models.py:40
+msgid "dashboard"
+msgstr "bacheca"
+
+#: models.py:41
+msgid "stream"
+msgstr "cronologia"
+
+#: models.py:45
+msgid "warehouse"
+msgstr "magazzino"
+
+#: models.py:46
+msgid "warehouses"
+msgstr "magazzini"
+
+#: models.py:49
+#, python-format
+msgid "%(name)s (%(owner)s)"
+msgstr ""
+
+#: models.py:76
+msgid "origin warehouse"
+msgstr "magazzino d'origine"
+
+#: models.py:77
+msgid "destination warehouse"
+msgstr "magazzino di destinazione"
+
+#: models.py:78
+msgid "product"
+msgstr "prodotto"
+
+#: models.py:80
+msgid "Created on"
+msgstr "creato il"
+
+#: models.py:86
+msgid "movement"
+msgstr "movimento"
+
+#: models.py:87
+msgid "movements"
+msgstr "movimenti"
+
+#: models.py:115
+msgid "bill to"
+msgstr "fatturato a"
+
+#: models.py:116
+msgid "Keep it blank to use the same as invoicing"
+msgstr "Lasciare bianco per usare lo stesso della fatturazione"
+
+#: models.py:116
+msgid "delivered to"
+msgstr "consegnato a"
+
+#: models.py:117
+msgid "order ref. no."
+msgstr "rif. ordine #"
+
+#: models.py:118
+msgid "on"
+msgstr "del"
+
+#: models.py:119
+msgid "means of delivery"
+msgstr "a mezzo"
+
+#: models.py:120
+msgid "reason of shipping"
+msgstr "causale"
+
+#: models.py:121
+msgid "terms of shipping"
+msgstr "termini di spedizione"
+
+#: models.py:122
+msgid "delivery date"
+msgstr "data di consegna"
+
+#: models.py:123
+msgid "good appearance"
+msgstr "aspetto dei beni"
+
+#: models.py:124
+msgid "entries"
+msgstr "voci"
+
+#: models.py:125
+msgid "notes"
+msgstr "note"
+
+#: models.py:128
+msgid "delivery note"
+msgstr "documento di trasporto"
+
+#: models.py:129
+msgid "delivery notes"
+msgstr "documenti di trasporto"
+
+#: models.py:132
+msgid "DN"
+msgstr "DDT"
+
+#: management/__init__.py:45
+msgid "Administrative Employees"
+msgstr ""
+
+#: management/__init__.py:50
+msgid "Main menu for stock management"
+msgstr "Menu principale per gestione delle scorte"
+
+#: management/__init__.py:55
+msgid "Main menu for warehouse model"
+msgstr "Menu principale per un magazzino"
+
+#: management/__init__.py:60
+msgid "Main menu for delivery note model"
+msgstr "Menu principale per un documento di trasporto"
+
+#: management/__init__.py:65
+msgid "Stock"
+msgstr "Scorte"
+
+#: management/__init__.py:67
+msgid "Stock management"
+msgstr "Gestione scorte"
+
+#: management/__init__.py:74
+msgid "Warehouses"
+msgstr "Magazzini"
+
+#: management/__init__.py:76
+msgid "Warehouses management"
+msgstr "Gestione magazzini"
+
+#: management/__init__.py:82 management/__init__.py:105
+msgid "Movements"
+msgstr "Movimenti"
+
+#: management/__init__.py:84
+msgid "Movements management"
+msgstr "Gestione movimenti"
+
+#: management/__init__.py:90
+msgid "Delivery notes"
+msgstr "Documenti di trasporto"
+
+#: management/__init__.py:92
+msgid "Delivery notes management"
+msgstr "Gestione documenti di trasporto"
+
+#: management/__init__.py:98 management/__init__.py:119
+msgid "Details"
+msgstr "Dettagli"
+
+#: management/__init__.py:112 management/__init__.py:133
+msgid "Timeline"
+msgstr "Cronologia"
+
+#: management/__init__.py:126
+msgid "Hard copies"
+msgstr "Copie cartacee"
+
+#: management/__init__.py:141
+msgid "Warehouse created"
+msgstr "Creazione magazzino"
+
+#: management/__init__.py:146
+msgid "Warehouse deleted"
+msgstr "Eliminazione magazzino"
+
+#: management/__init__.py:151
+msgid "Movement created"
+msgstr "Creazione movimento"
+
+#: management/__init__.py:156
+msgid "Movement deleted"
+msgstr "Eliminazione movimento"
+
+#: management/__init__.py:161
+msgid "Delivery note created"
+msgstr "Creazione documento di trasporto"
+
+#: management/__init__.py:166
+msgid "Delivery note changed"
+msgstr "Modifica documento di trasporto"
+
+#: management/__init__.py:171
+msgid "Delivery note deleted"
+msgstr "Eliminazione documento di trasporto"
+
+#: management/__init__.py:177
+msgid "Purchase Team"
+msgstr "Ufficio Acquisti"
+
+#: management/__init__.py:181
+msgid "Purchase Managers"
+msgstr "Responsabili Acquisti"
+
+#: views/deliverynotes.py:81
+msgid "The delivery note was created successfully."
+msgstr "Il documento di trasporto è stato salvato."
+
+#: views/deliverynotes.py:123
+msgid "The delivery note was updated successfully."
+msgstr "Il documento di trasporto è stato aggiornato."
+
+#: views/movements.py:71 views/warehouses.py:149 views/warehouses.py:171
+msgid "The movement was created successfully."
+msgstr "Il movimento è stato salvato."
+
+#: views/movements.py:108
+msgid "The movement was updated successfully."
+msgstr "Il movimento è stato aggiornato."
+
+#: views/warehouses.py:71
+msgid "The warehouse was created successfully."
+msgstr "Il magazzino è stato salvato."

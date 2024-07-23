@@ -1,0 +1,29 @@
+{% extends "knowledge/base.html" %}
+
+{% load i18n %}
+{% load breadcrumbs %}
+{% load details %}
+
+{% block meta_title %}{% trans "Wiki" %}{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Wiki' %}
+{% endblock %}
+
+{% block subtitle %}{% trans "Wiki" %}{% endblock %}
+
+{% block section %}
+{% include 'elements/filterbox.html' %}
+<div class="actions">
+    <ul>
+        {% if perms.knowledge.add_wikipage %}
+        <li class="add"><a title="{% trans 'Add' %}" href="{% url wikipage_add %}">{% trans 'Add' %}</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div class="details">
+    {% detail_table object_list field_names %}
+    {% include 'elements/paginator.html' %}
+</div>
+{% endblock %}

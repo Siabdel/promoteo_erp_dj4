@@ -1,0 +1,28 @@
+{% extends "documents/document_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block extrahead %}
+{{ dform.media }}
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Letters' 'letter_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% property_table dform "['code', ['owner', 'status']]" %}
+    {% property_table form "[['target', 'to'], ['location', 'date'], ['target_ref_number', 'target_ref_date'], 'subject', 'body']" %}
+    {% property_table dform "['categories', 'tags']" %}
+</table>
+{% endblock %}

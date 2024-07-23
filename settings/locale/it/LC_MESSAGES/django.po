@@ -1,0 +1,1275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-27 12:09+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: addressing.py:26
+msgid "preferred"
+msgstr "preferenziale"
+
+#: addressing.py:27
+msgid "invoice"
+msgstr "fatturazione"
+
+#: addressing.py:28
+msgid "delivery"
+msgstr "spedizione"
+
+#: addressing.py:29
+msgid "other"
+msgstr "altro"
+
+#: addressing.py:35
+msgid "land Line"
+msgstr "fisso"
+
+#: addressing.py:36
+msgid "mobile"
+msgstr "cellulare"
+
+#: addressing.py:37
+msgid "fax"
+msgstr ""
+
+#: addressing.py:43
+msgid "twitter"
+msgstr ""
+
+#: addressing.py:44
+msgid "linkedin"
+msgstr ""
+
+#: addressing.py:45
+msgid "facebook"
+msgstr ""
+
+#: addressing.py:46
+msgid "google+"
+msgstr ""
+
+#: calendar.py:28
+msgid "tentative"
+msgstr "tentativo"
+
+#: calendar.py:29 documents.py:27
+msgid "confirmed"
+msgstr "confermato"
+
+#: calendar.py:30
+msgid "cancelled"
+msgstr "cancellato"
+
+#: documents.py:26
+msgid "draft"
+msgstr "bozza"
+
+#: documents.py:28
+msgid "reviewed"
+msgstr "revisionato"
+
+#: hr.py:28
+msgid "fixed-term"
+msgstr "tempo determinato"
+
+#: hr.py:29
+msgid "part-time"
+msgstr ""
+
+#: hr.py:30
+msgid "open-ended"
+msgstr "tempo indeterminato"
+
+#: hr.py:40
+msgid "travel"
+msgstr "viaggio"
+
+#: hr.py:41
+msgid "medical"
+msgstr "mediche"
+
+#: hr.py:42
+msgid "food"
+msgstr "pasto"
+
+#: hr.py:43
+msgid "call"
+msgstr "chiamata"
+
+#: hr.py:44
+msgid "others"
+msgstr "altro"
+
+#: partners.py:26
+msgid "first contact"
+msgstr "primo contatto"
+
+#: partners.py:27
+msgid "hot contact"
+msgstr "contatto caldo"
+
+#: partners.py:28
+msgid "cold contact"
+msgstr "contatto freddo"
+
+#: partners.py:34
+msgid "AED"
+msgstr ""
+
+#: partners.py:35
+msgid "AFN"
+msgstr ""
+
+#: partners.py:36
+msgid "ALL"
+msgstr ""
+
+#: partners.py:37
+msgid "AMD"
+msgstr ""
+
+#: partners.py:38
+msgid "ANG"
+msgstr ""
+
+#: partners.py:39
+msgid "AOA"
+msgstr ""
+
+#: partners.py:40
+msgid "ARS"
+msgstr ""
+
+#: partners.py:41
+msgid "AUD"
+msgstr ""
+
+#: partners.py:42
+msgid "AZN"
+msgstr ""
+
+#: partners.py:43
+msgid "BAM"
+msgstr ""
+
+#: partners.py:44
+msgid "BBD"
+msgstr ""
+
+#: partners.py:45
+msgid "BDT"
+msgstr ""
+
+#: partners.py:46
+msgid "BGN"
+msgstr ""
+
+#: partners.py:47
+msgid "BHD"
+msgstr ""
+
+#: partners.py:48
+msgid "BIF"
+msgstr ""
+
+#: partners.py:49
+msgid "BMD"
+msgstr ""
+
+#: partners.py:50
+msgid "BND"
+msgstr ""
+
+#: partners.py:51
+msgid "BOB"
+msgstr ""
+
+#: partners.py:52
+msgid "BRL"
+msgstr ""
+
+#: partners.py:53
+msgid "BSD"
+msgstr ""
+
+#: partners.py:54
+msgid "BTN"
+msgstr ""
+
+#: partners.py:55
+msgid "BWP"
+msgstr ""
+
+#: partners.py:56
+msgid "BYR"
+msgstr ""
+
+#: partners.py:57
+msgid "BZD"
+msgstr ""
+
+#: partners.py:58
+msgid "CAD"
+msgstr ""
+
+#: partners.py:59
+msgid "CDF"
+msgstr ""
+
+#: partners.py:60
+msgid "CFA"
+msgstr ""
+
+#: partners.py:61
+msgid "CFP"
+msgstr ""
+
+#: partners.py:62
+msgid "CHF"
+msgstr ""
+
+#: partners.py:63
+msgid "CLP"
+msgstr ""
+
+#: partners.py:64
+msgid "CNY"
+msgstr ""
+
+#: partners.py:65
+msgid "COP"
+msgstr ""
+
+#: partners.py:66
+msgid "CRC"
+msgstr ""
+
+#: partners.py:67
+msgid "CUC"
+msgstr ""
+
+#: partners.py:68
+msgid "CZK"
+msgstr ""
+
+#: partners.py:69
+msgid "DJF"
+msgstr ""
+
+#: partners.py:70
+msgid "DKK"
+msgstr ""
+
+#: partners.py:71
+msgid "DOP"
+msgstr ""
+
+#: partners.py:72
+msgid "DZD"
+msgstr ""
+
+#: partners.py:73
+msgid "EEK"
+msgstr ""
+
+#: partners.py:74
+msgid "EGP"
+msgstr ""
+
+#: partners.py:75
+msgid "ERN"
+msgstr ""
+
+#: partners.py:76
+msgid "ETB"
+msgstr ""
+
+#: partners.py:77
+msgid "EUR"
+msgstr ""
+
+#: partners.py:78
+msgid "FJD"
+msgstr ""
+
+#: partners.py:79
+msgid "FKP"
+msgstr ""
+
+#: partners.py:80
+msgid "FMG"
+msgstr ""
+
+#: partners.py:81
+msgid "GBP"
+msgstr ""
+
+#: partners.py:82
+msgid "GEL"
+msgstr ""
+
+#: partners.py:83
+msgid "GHS"
+msgstr ""
+
+#: partners.py:84
+msgid "GIP"
+msgstr ""
+
+#: partners.py:85
+msgid "GMD"
+msgstr ""
+
+#: partners.py:86
+msgid "GNF"
+msgstr ""
+
+#: partners.py:87
+msgid "GQE"
+msgstr ""
+
+#: partners.py:88
+msgid "GTQ"
+msgstr ""
+
+#: partners.py:89
+msgid "GYD"
+msgstr ""
+
+#: partners.py:90
+msgid "HKD"
+msgstr ""
+
+#: partners.py:91
+msgid "HNL"
+msgstr ""
+
+#: partners.py:92
+msgid "HRK"
+msgstr ""
+
+#: partners.py:93
+msgid "HTG"
+msgstr ""
+
+#: partners.py:94
+msgid "HUF"
+msgstr ""
+
+#: partners.py:95
+msgid "IDR"
+msgstr ""
+
+#: partners.py:96
+msgid "ILS"
+msgstr ""
+
+#: partners.py:97
+msgid "INR"
+msgstr ""
+
+#: partners.py:98
+msgid "IQD"
+msgstr ""
+
+#: partners.py:99
+msgid "IRR"
+msgstr ""
+
+#: partners.py:100
+msgid "ISK"
+msgstr ""
+
+#: partners.py:101
+msgid "JMD"
+msgstr ""
+
+#: partners.py:102
+msgid "JOD"
+msgstr ""
+
+#: partners.py:103
+msgid "JPY"
+msgstr ""
+
+#: partners.py:104
+msgid "KES"
+msgstr ""
+
+#: partners.py:105
+msgid "KGS"
+msgstr ""
+
+#: partners.py:106
+msgid "KHR"
+msgstr ""
+
+#: partners.py:107
+msgid "KMF"
+msgstr ""
+
+#: partners.py:108
+msgid "KPW"
+msgstr ""
+
+#: partners.py:109
+msgid "KRW"
+msgstr ""
+
+#: partners.py:110
+msgid "KWD"
+msgstr ""
+
+#: partners.py:111
+msgid "KYD"
+msgstr ""
+
+#: partners.py:112
+msgid "KZT"
+msgstr ""
+
+#: partners.py:113
+msgid "LAK"
+msgstr ""
+
+#: partners.py:114
+msgid "LBP"
+msgstr ""
+
+#: partners.py:115
+msgid "LKR"
+msgstr ""
+
+#: partners.py:116
+msgid "LRD"
+msgstr ""
+
+#: partners.py:117
+msgid "LSL"
+msgstr ""
+
+#: partners.py:118
+msgid "LTL"
+msgstr ""
+
+#: partners.py:119
+msgid "LVL"
+msgstr ""
+
+#: partners.py:120
+msgid "LYD"
+msgstr ""
+
+#: partners.py:121
+msgid "MAD"
+msgstr ""
+
+#: partners.py:122
+msgid "MDL"
+msgstr ""
+
+#: partners.py:123
+msgid "MGA"
+msgstr ""
+
+#: partners.py:124
+msgid "MKD"
+msgstr ""
+
+#: partners.py:125
+msgid "MMK"
+msgstr ""
+
+#: partners.py:126
+msgid "MNT"
+msgstr ""
+
+#: partners.py:127
+msgid "MOP"
+msgstr ""
+
+#: partners.py:128
+msgid "MRO"
+msgstr ""
+
+#: partners.py:129
+msgid "MUR"
+msgstr ""
+
+#: partners.py:130
+msgid "MVR"
+msgstr ""
+
+#: partners.py:131
+msgid "MWK"
+msgstr ""
+
+#: partners.py:132
+msgid "MXN"
+msgstr ""
+
+#: partners.py:133
+msgid "MYR"
+msgstr ""
+
+#: partners.py:134
+msgid "MZM"
+msgstr ""
+
+#: partners.py:135
+msgid "NAD"
+msgstr ""
+
+#: partners.py:136
+msgid "NGN"
+msgstr ""
+
+#: partners.py:137
+msgid "NIO"
+msgstr ""
+
+#: partners.py:138
+msgid "NOK"
+msgstr ""
+
+#: partners.py:139
+msgid "NPR"
+msgstr ""
+
+#: partners.py:140
+msgid "NRs"
+msgstr ""
+
+#: partners.py:141
+msgid "NZD"
+msgstr ""
+
+#: partners.py:142
+msgid "OMR"
+msgstr ""
+
+#: partners.py:143
+msgid "PAB"
+msgstr ""
+
+#: partners.py:144
+msgid "PEN"
+msgstr ""
+
+#: partners.py:145
+msgid "PGK"
+msgstr ""
+
+#: partners.py:146
+msgid "PHP"
+msgstr ""
+
+#: partners.py:147
+msgid "PKR"
+msgstr ""
+
+#: partners.py:148
+msgid "PLN"
+msgstr ""
+
+#: partners.py:149
+msgid "PYG"
+msgstr ""
+
+#: partners.py:150
+msgid "QAR"
+msgstr ""
+
+#: partners.py:151
+msgid "RMB"
+msgstr ""
+
+#: partners.py:152
+msgid "RON"
+msgstr ""
+
+#: partners.py:153
+msgid "RSD"
+msgstr ""
+
+#: partners.py:154
+msgid "RUB"
+msgstr ""
+
+#: partners.py:155
+msgid "RWF"
+msgstr ""
+
+#: partners.py:156
+msgid "SAR"
+msgstr ""
+
+#: partners.py:157
+msgid "SCR"
+msgstr ""
+
+#: partners.py:158
+msgid "SDG"
+msgstr ""
+
+#: partners.py:159
+msgid "SDR"
+msgstr ""
+
+#: partners.py:160
+msgid "SEK"
+msgstr ""
+
+#: partners.py:161
+msgid "SGD"
+msgstr ""
+
+#: partners.py:162
+msgid "SHP"
+msgstr ""
+
+#: partners.py:163
+msgid "SOS"
+msgstr ""
+
+#: partners.py:164
+msgid "SRD"
+msgstr ""
+
+#: partners.py:165
+msgid "STD"
+msgstr ""
+
+#: partners.py:166
+msgid "SYP"
+msgstr ""
+
+#: partners.py:167
+msgid "SZL"
+msgstr ""
+
+#: partners.py:168
+msgid "THB"
+msgstr ""
+
+#: partners.py:169
+msgid "TJS"
+msgstr ""
+
+#: partners.py:170
+msgid "TMT"
+msgstr ""
+
+#: partners.py:171
+msgid "TND"
+msgstr ""
+
+#: partners.py:172
+msgid "TRY"
+msgstr ""
+
+#: partners.py:173
+msgid "TTD"
+msgstr ""
+
+#: partners.py:174
+msgid "TWD"
+msgstr ""
+
+#: partners.py:175
+msgid "TZS"
+msgstr ""
+
+#: partners.py:176
+msgid "UAE"
+msgstr ""
+
+#: partners.py:177
+msgid "UAH"
+msgstr ""
+
+#: partners.py:178
+msgid "UGX"
+msgstr ""
+
+#: partners.py:179
+msgid "USD"
+msgstr ""
+
+#: partners.py:180
+msgid "UYU"
+msgstr ""
+
+#: partners.py:181
+msgid "UZS"
+msgstr ""
+
+#: partners.py:182
+msgid "VEB"
+msgstr ""
+
+#: partners.py:183
+msgid "VND"
+msgstr ""
+
+#: partners.py:184
+msgid "VUV"
+msgstr ""
+
+#: partners.py:185
+msgid "WST"
+msgstr ""
+
+#: partners.py:186
+msgid "XAF"
+msgstr ""
+
+#: partners.py:187
+msgid "XCD"
+msgstr ""
+
+#: partners.py:188
+msgid "XDR"
+msgstr ""
+
+#: partners.py:189
+msgid "XOF"
+msgstr ""
+
+#: partners.py:190
+msgid "XPF"
+msgstr ""
+
+#: partners.py:191
+msgid "YEN"
+msgstr ""
+
+#: partners.py:192
+msgid "YER"
+msgstr ""
+
+#: partners.py:193
+msgid "YTL"
+msgstr ""
+
+#: partners.py:194
+msgid "ZAR"
+msgstr ""
+
+#: partners.py:195
+msgid "ZMK"
+msgstr ""
+
+#: partners.py:196
+msgid "ZWR"
+msgstr ""
+
+#: partners.py:202
+msgid "30 days"
+msgstr "30 gg"
+
+#: partners.py:203
+msgid "60 days"
+msgstr "60 gg"
+
+#: partners.py:204
+msgid "90 days"
+msgstr "90 gg"
+
+#: partners.py:205
+msgid "120 days"
+msgstr "120 gg"
+
+#: partners.py:206
+msgid "cash in advance"
+msgstr "pagamento anticipato"
+
+#: partners.py:207
+msgid "cash on delivery"
+msgstr "pagamento alla consegna"
+
+#: partners.py:213
+msgid "Chairman"
+msgstr "Presidente"
+
+#: partners.py:214
+msgid "CEO"
+msgstr "Amm. delegato"
+
+#: partners.py:215
+msgid "COO"
+msgstr "Dir. operativo"
+
+#: partners.py:216
+msgid "CFO"
+msgstr "Dir. finanziario"
+
+#: partners.py:217
+msgid "CTO"
+msgstr "Dir. tecnico"
+
+#: partners.py:218
+msgid "Project Manager"
+msgstr "Resp. progetto"
+
+#: partners.py:219
+msgid "Sales Manager"
+msgstr "Resp. vendite"
+
+#: partners.py:220
+msgid "Salesman"
+msgstr "Commerciale"
+
+#: partners.py:221
+msgid "Employee"
+msgstr "Impiegato"
+
+#: partners.py:227
+msgid "Male"
+msgstr "Maschio"
+
+#: partners.py:228
+msgid "Female"
+msgstr "Femmina"
+
+#: products.py:26
+msgid "Bag"
+msgstr ""
+
+#: products.py:27
+msgid "Barrel"
+msgstr ""
+
+#: products.py:28
+msgid "Block"
+msgstr ""
+
+#: products.py:29
+msgid "Board"
+msgstr ""
+
+#: products.py:30
+msgid "Board Feet"
+msgstr ""
+
+#: products.py:31
+msgid "Bottle"
+msgstr ""
+
+#: products.py:32
+msgid "Box"
+msgstr ""
+
+#: products.py:33
+msgid "Bulk"
+msgstr ""
+
+#: products.py:34
+msgid "Bundle"
+msgstr ""
+
+#: products.py:35
+msgid "Card"
+msgstr ""
+
+#: products.py:36
+msgid "Carton"
+msgstr ""
+
+#: products.py:37
+msgid "Cartridge"
+msgstr ""
+
+#: products.py:38
+msgid "Case"
+msgstr ""
+
+#: products.py:39
+msgid "Centigram"
+msgstr ""
+
+#: products.py:40
+msgid "Centiliter"
+msgstr ""
+
+#: products.py:41
+msgid "Count"
+msgstr ""
+
+#: products.py:42
+msgid "Cubic Centimeter"
+msgstr ""
+
+#: products.py:43
+msgid "Cubic Decimeter"
+msgstr ""
+
+#: products.py:44
+msgid "Cubic Feet"
+msgstr ""
+
+#: products.py:45
+msgid "Cubic Inches"
+msgstr ""
+
+#: products.py:46
+msgid "Cubic Meter"
+msgstr ""
+
+#: products.py:47
+msgid "Cubic Milimetre"
+msgstr ""
+
+#: products.py:48
+msgid "Days"
+msgstr ""
+
+#: products.py:49
+msgid "Decigram"
+msgstr ""
+
+#: products.py:50
+msgid "Deciliter"
+msgstr ""
+
+#: products.py:51
+msgid "Decimeter"
+msgstr ""
+
+#: products.py:52
+msgid "Degrees Celsius"
+msgstr ""
+
+#: products.py:53
+msgid "Degrees Fahrenheit"
+msgstr ""
+
+#: products.py:54
+msgid "Dozen"
+msgstr ""
+
+#: products.py:55
+msgid "Feet"
+msgstr ""
+
+#: products.py:56
+msgid "Fifty Count"
+msgstr ""
+
+#: products.py:57
+msgid "Fifty Square Feet"
+msgstr ""
+
+#: products.py:58
+msgid "Fluid Ounce"
+msgstr ""
+
+#: products.py:59
+msgid "Gallon"
+msgstr ""
+
+#: products.py:60
+msgid "Gram"
+msgstr ""
+
+#: products.py:61
+msgid "Gross Kilogram"
+msgstr ""
+
+#: products.py:62
+msgid "Half Dozen"
+msgstr ""
+
+#: products.py:63
+msgid "Houndred Count"
+msgstr ""
+
+#: products.py:64
+msgid "Houndred Feet"
+msgstr ""
+
+#: products.py:65
+msgid "Houndred Pounds"
+msgstr ""
+
+#: products.py:66
+msgid "Inches"
+msgstr ""
+
+#: products.py:67
+msgid "Jar"
+msgstr ""
+
+#: products.py:68
+msgid "Kilogram"
+msgstr ""
+
+#: products.py:69
+msgid "Kilometer"
+msgstr ""
+
+#: products.py:70
+msgid "Kit"
+msgstr ""
+
+#: products.py:71
+msgid "Liter"
+msgstr ""
+
+#: products.py:72
+msgid "Meter"
+msgstr ""
+
+#: products.py:73
+msgid "Metric Ton"
+msgstr ""
+
+#: products.py:74
+msgid "Microgram"
+msgstr ""
+
+#: products.py:75
+msgid "Microliter"
+msgstr ""
+
+#: products.py:76
+msgid "Miligram"
+msgstr ""
+
+#: products.py:77
+msgid "Mililiter"
+msgstr ""
+
+#: products.py:78
+msgid "Milimeter"
+msgstr ""
+
+#: products.py:79
+msgid "Ounces"
+msgstr ""
+
+#: products.py:80
+msgid "Pack"
+msgstr ""
+
+#: products.py:81
+msgid "Package"
+msgstr ""
+
+#: products.py:82
+msgid "Pail"
+msgstr ""
+
+#: products.py:83
+msgid "Pair"
+msgstr ""
+
+#: products.py:84
+msgid "Pallet"
+msgstr ""
+
+#: products.py:85
+msgid "Percent"
+msgstr ""
+
+#: products.py:86
+msgid "Piece"
+msgstr ""
+
+#: products.py:87
+msgid "Pint"
+msgstr ""
+
+#: products.py:88
+msgid "Portion"
+msgstr ""
+
+#: products.py:89
+msgid "Pouch"
+msgstr ""
+
+#: products.py:90
+msgid "Set"
+msgstr ""
+
+#: products.py:91
+msgid "Sheet"
+msgstr ""
+
+#: products.py:92
+msgid "Square Foot"
+msgstr ""
+
+#: products.py:93
+msgid "Square Meter"
+msgstr ""
+
+#: products.py:94
+msgid "Square Yard"
+msgstr ""
+
+#: products.py:95
+msgid "Tank"
+msgstr ""
+
+#: products.py:96
+msgid "Thousand Feet"
+msgstr ""
+
+#: products.py:97
+msgid "Unit"
+msgstr ""
+
+#: products.py:98
+msgid "Yard"
+msgstr ""
+
+#: products.py:104
+msgid "Purchase"
+msgstr "acquisto"
+
+#: products.py:105
+msgid "Production"
+msgstr "produzione"
+
+#: projects.py:26
+msgid "open"
+msgstr "aperto"
+
+#: projects.py:27
+msgid "closed"
+msgstr "chiuso"
+
+#: projects.py:35
+msgid "very low"
+msgstr "molto bassa"
+
+#: projects.py:36
+msgid "low"
+msgstr "bassa"
+
+#: projects.py:37
+msgid "medium"
+msgstr "media"
+
+#: projects.py:38
+msgid "high"
+msgstr "alta"
+
+#: projects.py:39
+msgid "critical"
+msgstr "critica"
+
+#: projects.py:45
+msgid "bug"
+msgstr ""
+
+#: projects.py:46
+msgid "task"
+msgstr "attività"
+
+#: projects.py:47
+msgid "idea"
+msgstr ""
+
+#: projects.py:53
+msgid "new"
+msgstr "nuovo"
+
+#: projects.py:54
+msgid "needs tests"
+msgstr "richiesta test"
+
+#: projects.py:55
+msgid "accepted"
+msgstr "accettato"
+
+#: projects.py:56
+msgid "invalid"
+msgstr "invalido"
+
+#: projects.py:57
+msgid "duplicated"
+msgstr "duplicato"
+
+#: projects.py:58
+msgid "resolved"
+msgstr "risolto"
+
+#: projects.py:59
+msgid "awaiting review"
+msgstr "in attesa di revisione"
+
+#: stock.py:26
+msgid "sender"
+msgstr "mittente"
+
+#: stock.py:27
+msgid "addressee"
+msgstr "destinatario"
+
+#: stock.py:28
+msgid "carrier"
+msgstr "vettore"
+
+#: stock.py:34
+msgid "EXW"
+msgstr ""
+
+#: stock.py:35
+msgid "FCA"
+msgstr ""
+
+#: stock.py:36
+msgid "CPT"
+msgstr ""
+
+#: stock.py:37
+msgid "CIP"
+msgstr ""
+
+#: stock.py:38
+msgid "DAT"
+msgstr ""
+
+#: stock.py:39
+msgid "DAP"
+msgstr ""
+
+#: stock.py:40
+msgid "DDP"
+msgstr ""
+
+#: stock.py:41
+msgid "FAS"
+msgstr ""
+
+#: stock.py:42
+msgid "FOB"
+msgstr ""
+
+#: stock.py:43
+msgid "CFR"
+msgstr ""
+
+#: stock.py:44
+msgid "CIF"
+msgstr ""
+
+#: stock.py:50
+msgid "box"
+msgstr "scatola"

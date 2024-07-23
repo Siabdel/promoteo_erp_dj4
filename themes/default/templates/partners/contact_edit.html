@@ -1,0 +1,25 @@
+{% extends "base_edit.html" %}
+
+{% load breadcrumbs %}
+{% load details %}
+
+{% block breadcrumbs %}
+    {% add_crumb 'Home' '/' %}
+    {% add_crumb 'Contacts' 'contact_list' %}
+    {% if object.pk %}
+    {% add_crumb object object.get_absolute_url %}
+    {% add_crumb 'Edit' %}
+    {% else %}
+    {% add_crumb 'Add' %}
+    {% endif %}
+{% endblock %}
+
+{% block editform %}
+<table class="properties">
+    {% if object.pk %}
+    {% property_table form "[['firstname', 'lastname'], ['nickname', 'date_of_birth'], ['gender', 'ssn'], ['language', 'timezone'], ['email', 'url'], ['main_address', 'main_phone_number'], 'user', 'tags', 'categories', 'allow_comments']" %}
+    {% else %}
+    {% property_table form "[['firstname', 'lastname'], ['nickname', 'date_of_birth'], ['gender', 'ssn'], ['language', 'timezone'], ['email', 'url'], 'user', 'tags', 'categories', 'allow_comments']" %}
+    {% endif %}
+</table>
+{% endblock %}

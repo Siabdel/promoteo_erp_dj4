@@ -1,0 +1,28 @@
+body {
+    width: 480px;
+    min-width: 480px;
+    -webkit-text-size-adjust: none;
+}
+
+#header, #branding, #nav, #breadcrumbs, #content, #footer {
+    float: none;
+    width: 480px;
+    min-width: 480px;
+}
+
+#content { background-image: none; }
+
+#main {
+    float: none;
+    width: 440px;
+}
+
+#user-profile-widget { display: none; }
+
+#main .region { width: 407px; }
+
+#main .widget { float: none; }
+
+#main-menu ul.menu { display: none; }
+
+#main-menu li.active ul.menu { display: block; }
