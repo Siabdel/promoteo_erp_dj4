@@ -21,7 +21,7 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 SEARCH_IN_MODELS = (
-    'auth.User',
+    'authorize.User',
     'taxonomy.Category',
     'taxonomy.Tag',
     'events.Event',

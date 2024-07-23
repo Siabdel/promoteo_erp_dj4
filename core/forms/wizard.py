@@ -399,7 +399,7 @@ from django.utils.translation import gettext as _
 from django.template.loader import render_to_string
 from django.db import models
 from django.utils.html import format_html
-from core.auth.cache import LoggedInUserCache
+from core.authorize.cache import LoggedInUserCache
 
 class DateWidget(forms.DateInput):
     """A more-friendly date widget with a pop-up calendar."""

@@ -9,7 +9,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.template.loader import render_to_string
 from django.db import models
-from core.auth.cache import LoggedInUserCache
+from core.authorize.cache import LoggedInUserCache
 from django.urls import reverse
 
 class DateWidget(forms.DateInput):

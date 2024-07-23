@@ -23,7 +23,7 @@ __version__ = '0.0.5'
 from django.utils.translation import gettext as _
 from django.db.models.signals import post_save, post_delete, m2m_changed
 
-from ..auth.models import *
+from ..authorize.models import *
 #from ..auth.signals import *
 from ..notifications.signals import *
 

@@ -267,10 +267,11 @@ INSTALLED_APPS = (
     'core.widgets',
     'core.menus',
     'core.taxonomy',
-    #'core.auth',
+    'core.authorize',
     #'core.registration',
+    
     #'core.notifications',
-    #'core.calendar',
+    'core.calendar',
     # locals 
     #'todo',
     #'addressing',
