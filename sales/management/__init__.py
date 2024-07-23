@@ -21,18 +21,18 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 from django.urls import reverse
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import Group
 
 from .core.auth.models import MyPermission
-from .core.utils import check_dependency
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.menus.models import *
 from .core.notifications.models import Signature
 
 from ..models import *
 
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 check_dependency('.core.menus')
 check_dependency('.core.taxonomy')
 check_dependency('.core.auth')
@@ -163,4 +163,4 @@ def install(sender, created_models, **kwargs):
     sales_managers_group.permissions.add(can_view_bankaccount, can_add_bankaccount, can_change_bankaccount, can_delete_bankaccount, can_view_salesinvoice, can_add_salesinvoice, can_change_salesinvoice, can_delete_salesinvoice)
     sales_managers_group.permissions.add(can_view_partner, can_add_partner, can_view_contact, can_add_contact, can_view_job, can_add_job, can_view_letter, can_add_letter)
 
-post_syncdb.connect(install, dispatch_uid="install_sales")
+post_migrate.connect(install, dispatch_uid="install_sales")

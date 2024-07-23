@@ -40,20 +40,20 @@ REPORT_PATH = os.path.join(PROJECT_PATH, 'reports', 'default')
 
 DEBUG = True
 
+ALLOWED_HOSTS = []
+
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
 
 MANAGERS = ADMINS
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -91,7 +91,9 @@ USE_I18N = True
 USE_L10N = True
 
 # A tuple of directories where Django looks for translation files.
+# Paths to locale directories
 LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
     os.path.join(PROJECT_PATH, 'settings', 'locale'),
     os.path.join(THEME_PATH, 'locale'),
     os.path.join(REPORT_PATH, 'locale'),
@@ -146,14 +148,12 @@ TEMPLATES = [
         'DIRS': [BASE_DIR / 'templates'],  # Ajustez selon votre structure de projet
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
+            'context_processors': [ 
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.i18n',
-                'django.core.context_processors.media',
-                'django.core.context_processors.static',
+
             ],
             # Si vous avez besoin de spécifier des loaders personnalisés, vous pouvez le faire ici :
             # 'loaders': [
@@ -175,23 +175,26 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    # Add the account middleware:
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'allauth.account.middleware.AccountMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # Ajoutez cette ligne
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Add the account middleware:
-    "allauth.account.middleware.AccountMiddleware",
     # debug 
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     # ... autres middlewares ...
+    #'django.middleware.locale.LocaleMiddleware',
+    #'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    #'core.middleware.MobileDetectionMiddleware',
+    #'core.middleware.AjaxRedirectMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.locale.LocaleMiddleware',
-    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
-    'core.middleware.MobileDetectionMiddleware',
-    'core.middleware.AjaxRedirectMiddleware',
-)
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 # Root for URL dispatcher.
 ROOT_URLCONF = PROJECT_PATH.split(os.sep)[-1] + '.urls'
@@ -227,19 +230,34 @@ TEMPLATE_DIRS = (
 
 # List of installed applications.
 INSTALLED_APPS = (
+    # contribs
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
+    'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'rest_framework', # new
+    # debug tools
+    'debug_toolbar',
+    # D- 3 rd party apps Django Rest Framework 
+    'corsheaders', 
+    # User Authentication
+    'allauth',
+    'allauth.account',
+    #'allauth.socialaccount',
+    # Third party
+    'crispy_forms',  # Optionnel, pour les formulaires stylisés
+    #'crispy_bootstrap5',  # Si vous utilisez Bootstrap 5
+    "crispy_bootstrap4",
+    "django_extensions",
+    
     'django.contrib.admindocs',
     'fluent_comments',
-    'crispy_forms',  # Optionnel, pour les formulaires stylisés
     'django_comments_xtd',
     'django_comments',
     'django.contrib.redirects',
-    'django.contrib.staticfiles',
     #
     'markdownx',
     #'south',
@@ -282,3 +300,20 @@ for app in INSTALLED_APPS:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 
+
+# Password validation
+# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]

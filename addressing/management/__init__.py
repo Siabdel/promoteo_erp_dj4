@@ -20,12 +20,12 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import Group
 
 from .core.auth.models import MyPermission
-from .core.utils import check_dependency
+from core.utils import check_dependency
 
 check_dependency('.core.auth')
 
@@ -67,4 +67,4 @@ def install(sender, **kwargs):
     administrative_employees_group.permissions.add(can_add_phonenumber, can_change_phonenumber, can_delete_phonenumber)
     administrative_employees_group.permissions.add(can_add_socialprofile, can_change_socialprofile, can_delete_socialprofile)
 
-post_syncdb.connect(install, dispatch_uid="install_addressing")
+post_migrate.connect(install, dispatch_uid="install_addressing")

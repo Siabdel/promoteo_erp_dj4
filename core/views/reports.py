@@ -32,7 +32,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.views.generic.simple import redirect_to
 
-from .core.utils import *
+from core.utils import *
 
 def fetch_resources(uri, rel):
     """Callback to allow pisa/reportlab to retrieve images, stylesheets, etc.

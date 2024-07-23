@@ -25,7 +25,7 @@ from django.views.generic import list_detail
 from django.utils.translation import check_for_language, activate
 from django.conf import settings
 
-from .core.utils import filter_objects
+from core.utils import filter_objects
 
 def set_language(request, lang, next=None):
     """Sets the current language.

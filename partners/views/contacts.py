@@ -29,7 +29,7 @@ from django.template import RequestContext
 from django.contrib import messages
 
 from .core.auth.decorators import obj_permission_required as permission_required
-from .core.utils import clean_referer
+from core.utils import clean_referer
 from .core.views import filtered_list_detail
 from prometeo.addressing.views import *
 

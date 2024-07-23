@@ -20,13 +20,13 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 
-from .core.utils import check_dependency
-from .core.widgets.models import *
+from core.utils import check_dependency
+from core.widgets.models import *
 
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 
 def install(sender, **kwargs):    
     # Widgets.
@@ -46,4 +46,4 @@ def install(sender, **kwargs):
         template_name="taxonomy/widgets/tag_cloud.html",
     )
 
-post_syncdb.connect(install, dispatch_uid="install_taxonomy")
+post_migrate.connect(install, dispatch_uid="install_taxonomy")

@@ -34,7 +34,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib import messages
 
-from .core.utils import clean_referer
+from core.utils import clean_referer
 from .core.auth.decorators import obj_permission_required as permission_required
 from .core.views import filtered_list_detail
 

@@ -21,13 +21,13 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 from django.urls import reverse
-from django.db.models.signals import post_syncdb, post_save
+from django.db.models.signals import post_migrate, post_save
 from django.utils.translation import gettext as _
 from django.contrib.contenttypes.models import ContentType
 
-from .core.utils import check_dependency
-from .core.widgets.models import *
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.widgets.models import *
+from core.menus.models import *
 from .core.notifications.models import Signature
 
 from ..models import *
@@ -35,7 +35,7 @@ from ..models import *
 check_dependency('django.contrib.auth')
 check_dependency('django.contrib.contenttypes')
 check_dependency('django_comments')
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 check_dependency('.core.menus')
 check_dependency('.core.taxonomy')
 check_dependency('.core.notifications')
@@ -173,5 +173,5 @@ def add_view_permission(sender, instance, **kwargs):
         codename = "view_%s" % instance.model
         Permission.objects.get_or_create(content_type=instance, codename=codename, name="Can view %s" % instance.name)
 
-post_syncdb.connect(install, dispatch_uid="install_auth")
+post_migrate.connect(install, dispatch_uid="install_auth")
 post_save.connect(add_view_permission, ContentType)

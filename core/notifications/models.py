@@ -31,7 +31,7 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 
 from .models import validate_json
-from .core.utils import field_to_string
+from core.utils import field_to_string
 
 from .managers import **
 

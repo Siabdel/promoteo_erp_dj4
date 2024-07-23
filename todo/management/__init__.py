@@ -20,17 +20,17 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import Group
 
 from .core.auth.models import MyPermission
-from .core.utils import check_dependency
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.menus.models import *
 from .core.notifications.models import Signature
-from .core.widgets.models import *
+from core.widgets.models import *
 
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 check_dependency('.core.menus')
 check_dependency('.core.taxonomy')
 check_dependency('.core.auth')
@@ -126,4 +126,4 @@ def install(sender, **kwargs):
         template_name="todo/widgets/latest_tasks.html",
     )
 
-post_syncdb.connect(install, dispatch_uid="install_todo")
+post_migrate.connect(install, dispatch_uid="install_todo")

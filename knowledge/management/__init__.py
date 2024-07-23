@@ -21,16 +21,16 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 from django.urls import reverse
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import Group
 
 from .core.auth.models import MyPermission
-from .core.utils import check_dependency
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.menus.models import *
 from .core.notifications.models import Signature
 
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 check_dependency('.core.menus')
 check_dependency('.core.taxonomy')
 check_dependency('.core.auth')
@@ -210,4 +210,4 @@ def install(sender, **kwargs):
 
     users_group.permissions.add(can_view_wikipage, can_add_wikipage, can_change_wikipage, can_view_faq, can_add_faq, can_view_poll, can_add_poll)
 
-post_syncdb.connect(install, dispatch_uid="install_knowledge")
+post_migrate.connect(install, dispatch_uid="install_knowledge")

@@ -29,7 +29,7 @@ from django.utils.translation import gettext as _
 from django.conf import settings
 
 from .models import Commentable
-from .core.utils import assign_code
+from core.utils import assign_code
 
 from .managers import **
 

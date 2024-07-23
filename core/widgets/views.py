@@ -29,7 +29,7 @@ from django.template import RequestContext
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 
-from .core.utils import clean_referer
+from core.utils import clean_referer
 from .core.auth.decorators import obj_permission_required as permission_required
 
 from .models import *

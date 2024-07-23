@@ -21,12 +21,12 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 from django.urls import reverse
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 
-from .core.utils import check_dependency
-from .core.widgets.models import *
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.widgets.models import *
+from core.menus.models import *
 
 check_dependency('.core.menus')
 check_dependency('.core.auth')
@@ -44,4 +44,4 @@ def install(sender, **kwargs):
         menu=user_area_not_logged_menu
     )
 
-post_syncdb.connect(install, dispatch_uid="install_notifications")
+post_migrate.connect(install, dispatch_uid="install_notifications")

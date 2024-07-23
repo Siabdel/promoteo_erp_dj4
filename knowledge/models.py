@@ -31,7 +31,7 @@ from django.template.defaultfilters import truncatewords
 from django.urls import reverse
 from django.conf import settings
 
-from .core.utils import value_to_string
+from core.utils import value_to_string
 from .models import Commentable
 
 from .managers import **

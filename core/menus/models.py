@@ -53,7 +53,7 @@ class Link(models.Model):
                                 blank=True, null=True, verbose_name=_('sub-menu'), on_delete=models.CASCADE)
     only_authenticated = models.BooleanField(default=True, verbose_name=_('Only for authenticated users'))
     only_staff = models.BooleanField(default=False, verbose_name=_('Only for staff users'))
-    only_with_perms = models.ManyToManyField(Permission, blank=True, null=True, verbose_name=_('Only with following permissions'))
+    only_with_perms = models.ManyToManyField(Permission, blank=True,  verbose_name=_('Only with following permissions'))
 
     class Meta:
         ordering = ('menu', 'sort_order', 'id',)

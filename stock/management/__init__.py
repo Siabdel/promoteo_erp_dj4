@@ -21,18 +21,18 @@ __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
 from django.urls import reverse
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import Group
 
 from .core.auth.models import MyPermission
-from .core.utils import check_dependency
-from .core.menus.models import *
+from core.utils import check_dependency
+from core.menus.models import *
 from .core.notifications.models import Signature
 
 from ..models import *
 
-check_dependency('.core.widgets')
+check_dependency('core.widgets')
 check_dependency('.core.menus')
 check_dependency('.core.taxonomy')
 check_dependency('.core.auth')
@@ -204,4 +204,4 @@ def install(sender, created_models, **kwargs):
     purchase_team_group.permissions.add(can_view_warehouse, can_add_warehouse, can_view_movement, can_add_movement, can_view_deliverynote, can_add_deliverynote)
     purchase_managers_group.permissions.add(can_view_warehouse, can_add_warehouse, can_change_warehouse, can_delete_warehouse, can_view_movement, can_add_movement, can_change_movement, can_delete_movement, can_view_deliverynote, can_add_deliverynote, can_change_deliverynote, can_delete_deliverynote)
 
-post_syncdb.connect(install, dispatch_uid="install_stock")
+post_migrate.connect(install, dispatch_uid="install_stock")

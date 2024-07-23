@@ -26,7 +26,7 @@ from django.contrib.auth.models import User
 from django_comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
-from .core.menus.models import Link, Bookmark
+from core.menus.models import Link, Bookmark
 from .core.menus.signals import manage_bookmarks
 from .core.widgets.models import Widget
 from .core.widgets.signals import manage_dashboard

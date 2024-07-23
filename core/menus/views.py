@@ -30,7 +30,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from .core.utils import clean_referer
+from core.utils import clean_referer
 from .core.auth.views import _get_user
 from .core.auth.decorators import obj_permission_required as permission_required
 from .core.views import filtered_list_detail

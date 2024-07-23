@@ -20,10 +20,10 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.db.models.signals import post_syncdb
+from django.db.models.signals import post_migrate
 from django.utils.translation import gettext as _
 
-from .core.widgets.models import *
+from core.widgets.models import *
 
 def install(sender, **kwargs):
     # Regions.
@@ -65,4 +65,4 @@ def install(sender, **kwargs):
         region=footer_region
     )
 
-post_syncdb.connect(install, dispatch_uid="install_widgets")
+post_migrate.connect(install, dispatch_uid="install_widgets")
