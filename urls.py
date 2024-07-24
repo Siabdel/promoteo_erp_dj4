@@ -1,36 +1,53 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""This file is part of the prometeo project.
 
-This program is free software: you can redistribute it and/or modify it 
-under the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>
-"""
-
-__author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
-__copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
-__version__ = '0.0.5'
-
-from django.db.models.loading import cache
 from django.urls import path, include
+from django.contrib import admin
+from django.conf import settings
+from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .core import urls
+# Liste des URL patterns
+urlpatterns = [
+    # Home page
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
 
-# Workaround for Django's ticket #10405.
-# See http://code.djangoproject.com/ticket/10405#comment:10 for more info.
-if not cache.loaded:
-    cache.get_models()
+    # Admin
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    path('admin/', admin.site.urls),
 
-urls.autodiscover()
+    # Comments framework
+    path('comments/', include('django_comments.urls')),
+    path('comments-xtd/', include('django_comments_xtd.urls')),
+    
+    # Markdownx
+    path('markdownx/', include('markdownx.urls')),
 
-urlpatterns = urls.urlpatterns
-urlpatterns += path('markdownx/', include('markdownx.urls')),
+    # Third-party apps
+    path('accounts/', include('allauth.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
+
+    # Core apps
+    path('filebrowser/', include('core.filebrowser.urls')),
+    path('widgets/', include('core.widgets.urls')),
+    path('menus/', include('core.menus.urls')),
+    path('taxonomy/', include('core.taxonomy.urls')),
+    # path('auth/', include('core.auth.urls')),
+    # path('registration/', include('core.registration.urls')),
+    path('notifications/', include('core.notifications.urls')),
+    path('calendar/', include('core.calendar.urls')),
+
+    # Local apps (uncomment as needed)
+    # path('todo/', include('todo.urls')),
+    # path('addressing/', include('addressing.urls')),
+    # path('partners/', include('partners.urls')),
+    # path('documents/', include('documents.urls')),
+    # path('products/', include('products.urls')),
+    # path('stock/', include('stock.urls')),
+    # path('hr/', include('hr.urls')),
+    # path('sales/', include('sales.urls')),
+    # path('projects/', include('projects.urls')),
+    # path('knowledge/', include('knowledge.urls')),
+]
+
+# Ajout des fichiers statiques en mode debug
+urlpatterns += staticfiles_urlpatterns()

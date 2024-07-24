@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 import datetime, random, hashlib
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string

@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 from django import forms
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from .core.auth.forms import UserEditForm
 

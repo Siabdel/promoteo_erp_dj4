@@ -22,9 +22,10 @@ __version__ = '0.0.5'
 
 from django.db import models
 from django.contrib.auth.models import User, Group, Permission
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
+from core.calendar.models import Calendar
 
 from .managers import *
 
@@ -62,12 +63,12 @@ class MyPermission(Permission):
 class UserProfile(models.Model):
     """User profile.
     """
-    user = models.OneToOneField(User)
-    language = models.CharField(max_length=5, null=True, choices=settings.LANGUAGES, default=settings.LANGUAGE_CODE, verbose_name=_("language"))
-    timezone = models.CharField(max_length=20, null=True, choices=settings.TIME_ZONES, default=settings.TIME_ZONE, verbose_name=_("timezone"))
-    dashboard = models.OneToOneField('widgets.Region', null=True, verbose_name=_("dashboard"))
-    bookmarks = models.OneToOneField('menus.Menu', null=True, verbose_name=_("bookmarks"))
-    calendar = models.OneToOneField('calendar.Calendar', null=True, verbose_name=_("calendar"))
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    language = models.CharField(max_length=225, null=True, choices=settings.LANGUAGES, default=settings.LANGUAGE_CODE, verbose_name=_("language"))
+    timezone = models.CharField(max_length=30, null=True, choices=settings.TIME_ZONES, default=settings.TIME_ZONE, verbose_name=_("timezone"))
+    dashboard = models.OneToOneField('widgets.Region', null=True, verbose_name=_("dashboard"), on_delete=models.CASCADE)
+    bookmarks = models.OneToOneField('menus.Menu', null=True, verbose_name=_("bookmarks"), on_delete=models.CASCADE)
+    calendar = models.OneToOneField(Calendar, null=True, verbose_name=_("calendar"), on_delete=models.CASCADE)
     
     def __unicode__(self):
         return self.user.username
@@ -76,9 +77,9 @@ class ObjectPermission(models.Model):
     """A generic object/row-level permission.
     """
     object_id = models.PositiveIntegerField()
-    perm = models.ForeignKey(Permission, verbose_name=_("permission"))
-    users = models.ManyToManyField(User, null=True, blank=True, related_name='objectpermissions', verbose_name=_("users"))
-    groups = models.ManyToManyField(Group, null=True, blank=True, related_name='objectpermissions', verbose_name=_("groups"))
+    perm = models.ForeignKey(Permission, verbose_name=_("permission"), on_delete=models.CASCADE)
+    users = models.ManyToManyField(User, related_name='objectpermissions', verbose_name=_("users"))
+    groups = models.ManyToManyField(Group, related_name='objectpermissions', verbose_name=_("groups"))
 
     objects = ObjectPermissionManager()
 

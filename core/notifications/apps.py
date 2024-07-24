@@ -1,9 +1,8 @@
 from django.apps import AppConfig
-from django.dispatch import Signal
 
-class NotificationsConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
-    name = "notification"
-
+class NotificationConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'notifications'  # Simplifiez le nom si nécessaire
+    
     def ready(self):
-        import notification.signals  # noqa F401
+        import core.notifications.signals  # noqa F401

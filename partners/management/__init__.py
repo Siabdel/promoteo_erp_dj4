@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 from django.urls import reverse
 from django.db.models.signals import post_migrate
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import Group #, User
 
 from .core.auth.models import MyPermission

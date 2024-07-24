@@ -27,7 +27,7 @@ from datetime import timedelta
 
 from pytz import common_timezones
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = repertoire racine au meme niveau manage.py
@@ -270,8 +270,9 @@ INSTALLED_APPS = (
     'core.authorize',
     #'core.registration',
     
-    #'core.notifications',
     'core.calendar',
+    #'core.notifications',
+
     # locals 
     #'todo',
     #'addressing',

@@ -20,7 +20,7 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import list_detail, create_update

@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 from django import forms
 from django.forms.models import inlineformset_factory
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from .core.forms import enrich_form
 from .core.forms.fields import *

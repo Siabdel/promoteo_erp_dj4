@@ -22,11 +22,11 @@ __version__ = '0.0.5'
 
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from core.utils import value_to_string
 
-from .managers import **
+from .managers import *
 
 class Warehouse(models.Model):
     """Warehouse model.

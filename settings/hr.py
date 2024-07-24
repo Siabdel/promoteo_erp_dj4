@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 import datetime
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 EMPLOYMENT_TYPE_CHOICES = (
     ('FT', _('fixed-term')),

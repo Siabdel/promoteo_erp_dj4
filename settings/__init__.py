@@ -22,3 +22,4 @@ __version__ = '0.0.5'
 
 from .base import *
 #from config.projects import *
+from .calendar import *

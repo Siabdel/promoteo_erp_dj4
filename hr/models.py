@@ -24,12 +24,12 @@ from datetime import datetime
 
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
 from core.utils import field_to_string
 
-from .managers import **
+from .managers import *
 
 class Employee(models.Model):
     """Employee model.

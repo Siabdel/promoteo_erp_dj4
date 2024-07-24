@@ -45,7 +45,7 @@ from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.utils.hashcompat import md5_constructor
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.encoding import smart_str, force_unicode
 
 class FormWizard(object):
@@ -395,7 +395,7 @@ from django import forms
 from django.forms.utils import flatatt
 from django.utils.encoding import force_str
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.template.loader import render_to_string
 from django.db import models
 from django.utils.html import format_html

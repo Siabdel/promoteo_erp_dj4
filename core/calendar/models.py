@@ -23,12 +23,13 @@ __version__ = '0.0.5'
 import datetime
 
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
-from .models import Commentable
+from core.models import Commentable
+from core.notifications.models import Stream
 
-from .managers import **
+from .managers import *
 
 class Calendar(models.Model):
     """Calendar model.
@@ -37,8 +38,8 @@ class Calendar(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name=_('slug'))
     description = models.TextField(null=True, blank=True, verbose_name=_('description'))
     
-    def __unicode__(self):
-        return u'%s' % self.title
+    def __str__(self):
+        return f'{self.title}'
         
 class Event(Commentable):
     """Event model.
@@ -49,13 +50,14 @@ class Event(Commentable):
     end = models.DateTimeField(null=True, blank=True, verbose_name=_('end date'))
     location = models.CharField(max_length=100, null=True, blank=True, verbose_name=_('location'))
     status = models.CharField(max_length=100, choices=settings.EVENT_STATUS_CHOICES, default=settings.EVENT_DEFAULT_STATUS, verbose_name=_('status'))
-    attendees = models.ManyToManyField('auth.User', null=True, blank=True, verbose_name=_('attendees'))
+    attendees = models.ManyToManyField('auth.User', verbose_name=_('attendees'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('created on'))
-    author = models.ForeignKey('auth.User', related_name='created_events', null=True, blank=True, verbose_name=_('created by'))
-    categories = models.ManyToManyField('taxonomy.Category', null=True, blank=True, verbose_name=_('categories'))
-    tags = models.ManyToManyField('taxonomy.Tag', null=True, blank=True, verbose_name=_('tags'))
-    stream = models.OneToOneField('notifications.Stream', null=True, verbose_name=_('stream'))
-    calendars = models.ManyToManyField(Calendar, null=True, verbose_name=_('calendars'))
+    author = models.ForeignKey('auth.User', related_name='created_events', 
+                               null=True, blank=True, verbose_name=_('created by'), on_delete=models.CASCADE)
+    categories = models.ManyToManyField('taxonomy.Category', verbose_name=_('categories'))
+    tags = models.ManyToManyField('taxonomy.Tag', verbose_name=_('tags'))
+    stream = models.OneToOneField(Stream, verbose_name=_('stream'),on_delete=models.CASCADE )
+    calendars = models.ManyToManyField(Calendar, verbose_name=_('calendars'))
 
     objects = EventManager()
 
@@ -65,8 +67,8 @@ class Event(Commentable):
         verbose_name = _('event')
         verbose_name_plural = _('events')
 
-    def __unicode__(self):
-        return u'%s' % self.title
+    def __str__(self):
+        return f'{self.title}'
 
     def get_absolute_url(self):
         return reverse('event_detail',kwargs= {"id": self.pk})

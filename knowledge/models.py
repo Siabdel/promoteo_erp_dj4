@@ -24,7 +24,7 @@ import datetime
 
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.template.defaultfilters import truncatewords
@@ -32,9 +32,10 @@ from django.urls import reverse
 from django.conf import settings
 
 from core.utils import value_to_string
-from .models import Commentable
+from core.models import Commentable
 
-from .managers import **
+
+from .managers import *
 
 class WikiPage(Commentable):
     """Wiki page model.

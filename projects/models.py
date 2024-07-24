@@ -25,13 +25,14 @@ from datetime import datetime
 from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
-from .models import Commentable
+from core.models import Commentable
+
 from core.utils import assign_code
 
-from .managers import **
+from .managers import *
 
 class Project(Commentable):
     """Project model.

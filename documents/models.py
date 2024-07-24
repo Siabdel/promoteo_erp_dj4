@@ -27,14 +27,15 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 from django.conf import settings
 
-from .models import Commentable
+from core.models import Commentable
+
 from core.utils import assign_code
 
-from .managers import **
+from .managers import *
 
 def _get_upload_to(instance, filename):
     return os.path.join(

@@ -20,9 +20,9 @@ __author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
 __copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
 __version__ = '0.0.5'
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
-from base import TEMPLATE_CONTEXT_PROCESSORS
+from .base import TEMPLATES
 
 EVENT_STATUS_CHOICES = (
     ('TENTATIVE', _('tentative')),
@@ -32,6 +32,6 @@ EVENT_STATUS_CHOICES = (
 
 EVENT_DEFAULT_STATUS = 'CONFIRMED'
 
-TEMPLATE_CONTEXT_PROCESSORS += (
+TEMPLATES[0]['OPTIONS']['context_processors'] += (
     '.core.calendar.context_processors.today',
 )

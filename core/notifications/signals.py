@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 import django.dispatch
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
 from django_comments.models import Comment

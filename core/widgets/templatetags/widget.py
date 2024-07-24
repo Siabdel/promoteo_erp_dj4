@@ -24,7 +24,7 @@ import re
 from copy import copy
 
 from django import template
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist

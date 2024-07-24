@@ -27,7 +27,7 @@ from collections import OrderedDict
 from django.utils.encoding import force_str
 
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from django.utils.formats import localize
 from django.template.defaultfilters import date, time, striptags, truncatewords

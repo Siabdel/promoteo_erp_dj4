@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 from django.db import models
 from django.shortcuts import get_object_or_404
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Permission
 from django.urls import reverse        
 class Menu(models.Model):

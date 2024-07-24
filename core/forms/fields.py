@@ -24,7 +24,7 @@ from time import localtime
 
 from django.forms import fields
 from django.utils import formats
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 from widgets import DateTimeWidget

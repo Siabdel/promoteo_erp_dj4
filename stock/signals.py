@@ -22,7 +22,7 @@ __version__ = '0.0.5'
 
 import json
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import post_save, post_delete
 
 from .core.auth.models import ObjectPermission

@@ -26,7 +26,7 @@ from django.db import models
 from django.db.models import Q
 from django.db.models.loading import get_models
 from django.shortcuts import get_object_or_404
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import list_detail, create_update
 from django.views.generic.simple import redirect_to
 from django.template import RequestContext

@@ -22,13 +22,14 @@ __version__ = '0.0.5'
 
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.urls import reverse
 
-from .models import Commentable
+from core.models import Commentable
 
-from .managers import **
+
+from .managers import *
 
 class Contact(Commentable):
     """Contact model.

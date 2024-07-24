@@ -23,7 +23,7 @@ __version__ = '0.0.5'
 from datetime import datetime
 
 from django.shortcuts import render_to_response, get_object_or_404
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import list_detail, create_update
 from django.views.generic.simple import redirect_to
 from django.urls import reverse

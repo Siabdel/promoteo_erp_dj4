@@ -26,7 +26,7 @@ import shutil
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response, redirect
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from django.contrib import messages
 from django.conf import settings

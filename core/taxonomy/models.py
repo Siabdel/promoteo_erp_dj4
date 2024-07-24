@@ -23,7 +23,7 @@ __version__ = '0.0.5'
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
