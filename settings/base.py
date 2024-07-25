@@ -32,6 +32,8 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = repertoire racine au meme niveau manage.py
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 #
 
 PROJECT_PATH = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.path.pardir))
@@ -41,6 +43,7 @@ REPORT_PATH = os.path.join(PROJECT_PATH, 'reports', 'default')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ROOT_URLCONF = 'settings.urls'
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
