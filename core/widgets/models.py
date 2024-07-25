@@ -23,7 +23,7 @@ __version__ = '0.0.5'
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from core.models import validate_json
+from core.utils.views  import validate_json
 from django.urls import reverse
     
 class Region(models.Model):

@@ -34,11 +34,11 @@ from ..models import *
 
 check_dependency('django.contrib.auth')
 check_dependency('django.contrib.contenttypes')
-check_dependency('django_comments')
+##check_dependency('django_comments')
 check_dependency('core.widgets')
 check_dependency('core.menus')
 check_dependency('core.taxonomy')
-check_dependency('core.notifications')
+## check_dependency('core.notifications')
 
 def install(sender, **kwargs):
     main_menu, is_new = Menu.objects.get_or_create(slug="main")
@@ -73,7 +73,7 @@ def install(sender, **kwargs):
         title=_("Users"),
         slug="users",
         description=_("Users management"),
-        url=reverse("user_list"),
+        url=reverse("authorize:user_list"),
         menu=main_menu
     )
     

@@ -1,34 +1,16 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""This file is part of the prometeo project.
-
-This program is free software: you can redistribute it and/or modify it 
-under the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>
 """
-
-__author__ = 'Emanuele Bertoldi <emanuele.bertoldi@gmail.com>'
-__copyright__ = 'Copyright (c) 2011 Emanuele Bertoldi'
-__version__ = '0.0.5'
-
+___ utils
+    compatbilite Django v4
+"""
+    
+    
 from django.db import models
 from django.db.models import Q, query
 from django.db.models import fields as django_fields
 from collections import OrderedDict
 from django.utils.encoding import force_str
-
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
-
 from django.utils.formats import localize
 from django.template.defaultfilters import date, time, striptags, truncatewords
 from django.conf import settings
@@ -38,60 +20,48 @@ class DependencyError(Exception):
         self._app_name = app_name
 
     def __str__(self):
-        return u"A dependency is not satisfied: %s" % app_name
+        return f"A dependency is not satisfied: {self._app_name}"
 
 def check_dependency(app_name):
     if app_name not in settings.INSTALLED_APPS:
         raise DependencyError(app_name)
 
 def clean_referer(request, default_referer='/'):
-    """Returns the HTTP referer of the given <request>.
-    
-    If the HTTP referer is not recognizable, <default_referer> is returned.
-    """
     referer = request.META.get('HTTP_REFERER', default_referer)
     return referer.replace("http://", "").replace("https://", "").replace(request.META['HTTP_HOST'], "")
 
 def value_to_string(value):
-    """Tries to return a smart string representation of the given <value>.
-    """
     output = localize(value)
     if isinstance(value, (list, tuple)):
-        output = ', '.join(value)
+        output = ', '.join(str(v) for v in value)
     elif isinstance(value, bool):
-        if not value:
-            output = u'<span class="no">%s</span>' % _('No')
-        else:
-            output = u'<span class="yes">%s</span>' % _('Yes')
+        output = f"<span class='{'yes' if value else 'no'}'>{_('Yes') if value else _('No')}</span>"
     elif isinstance(value, float):
-        output = u'%.2f' % value
+        output = f'{value:.2f}'
     elif isinstance(value, int):
-        output = '%d' % value
+        output = f'{value}'
     if not value and not output:
-        output = u'<span class="disabled">%s</span>' % _('empty')
+        output = f"<span class='disabled'>{_('empty')}</span>"
     return mark_safe(output)
 
 def field_to_value(field, instance):
-    """Tries to convert a model field value in something smarter to render.
-    """
     value = getattr(instance, field.name)
     if field.primary_key or isinstance(field, models.SlugField):
-        if value:
-            return u'#%s' % value
+        return f'#{value}' if value else None
     elif isinstance(field, models.PositiveIntegerField):
-        return u'#%d' % value
+        return f'#{value}'
     elif isinstance(field, (models.ForeignKey, models.OneToOneField)):
         try:
-            return '<a href="%s">%s</a>' % (value.get_absolute_url(), value)
+            return mark_safe(f"<a href='{value.get_absolute_url()}'>{value}</a>")
         except AttributeError:
             return value
     elif isinstance(field, models.ManyToManyField):
         items = []
         for item in value.all():
             try:
-                items.append('<a href="%s">%s</a>' % (item.get_absolute_url(), item))
+                items.append(mark_safe(f"<a href='{item.get_absolute_url()}'>{item}</a>"))
             except AttributeError:
-                items.append(u'%s' % item)
+                items.append(str(item))
         return items
     elif isinstance(field, models.DateTimeField):
         return date(value, settings.DATETIME_FORMAT)
@@ -100,49 +70,35 @@ def field_to_value(field, instance):
     elif isinstance(field, models.TimeField):
         return time(value, settings.TIME_FORMAT)
     elif isinstance(field, models.URLField) and value:
-        return u'<a href="%s">%s</a>' % (value, value)
+        return mark_safe(f'<a href="{value}">{value}</a>')
     elif isinstance(field, models.EmailField) and value:
-        return u'<a href="mailto:%s">%s</a>' % (value, value)
+        return mark_safe(f'<a href="mailto:{value}">{value}</a>')
     elif field.choices:
-        return getattr(instance, 'get_%s_display' % field.name)()
+        return getattr(instance, f'get_{field.name}_display')()
     elif isinstance(field, models.BooleanField):
-        if value == '0' or not value:
-            return False
-        return True
+        return bool(value)
     return value
 
 def field_to_string(field, instance):
-    """All-in-one conversion from a model field value to a smart string representation.
-    """
     return value_to_string(field_to_value(field, instance))
 
 def is_visible(field_name, fields=[], exclude=[]):
-    """Checks if <field_name> is in the resulting combination of <fields> and <exclude>.
-    """
     return (len(fields) == 0 or field_name in fields) and field_name not in exclude
 
 def filter_field_value(request, field):
-    """Retrieves from POST the value of the filter related to the given <field>.
-    """
     name = field.name
-    if request.POST.has_key("sub_%s" % name):
+    if f"sub_{name}" in request.POST:
         return None
-    elif request.POST.has_key(name):
+    elif name in request.POST:
         return request.POST[name]
-    elif request.POST.has_key(u'filter_field') and request.POST[u'filter_field'] == name:
-        return request.POST[u'filter_query']
+    elif 'filter_field' in request.POST and request.POST['filter_field'] == name:
+        return request.POST['filter_query']
     return None
     
 def get_filter_fields(request, model, fields, exclude):
-    """Returns the list of available filters for the given <model>.
-    """
     return [(f, filter_field_value(request, f)) for f in model._meta.fields if is_visible(f.name, fields, exclude)]
 
 def filter_objects(request, model_or_queryset=None, fields=[], exclude=[]):
-    """Returns a queryset of filtered objects.
-
-    <model_or_queryset> can be a Model class or a starting queryset.
-    """
     matches = []
     model = None
     object_list = None
@@ -151,7 +107,6 @@ def filter_objects(request, model_or_queryset=None, fields=[], exclude=[]):
     if isinstance(model_or_queryset, query.QuerySet):
         model = model_or_queryset.model
         object_list = model_or_queryset
-
     elif issubclass(model_or_queryset, models.Model):
         model = model_or_queryset
         object_list = model.objects.all()
@@ -167,11 +122,11 @@ def filter_objects(request, model_or_queryset=None, fields=[], exclude=[]):
         for f, value in filter_fields:
             if value is not None:
                 if isinstance(f, django_fields.related.RelatedField):
-                    pass # Fail silently.
+                    pass  # Fail silently.
                 else:
-                    queryset.append(Q(**{"%s__startswith" % f.name: value}) | Q(**{"%s__endswith" % f.name: value}))
+                    queryset.append(Q(**{f"{f.name}__startswith": value}) | Q(**{f"{f.name}__endswith": value}))
 
-    if (queryset is not None):
+    if queryset:
         matches = object_list.filter(*queryset)
     else:
         matches = object_list
@@ -179,14 +134,12 @@ def filter_objects(request, model_or_queryset=None, fields=[], exclude=[]):
     try:
         order_by = request.GET['order_by']
         matches = matches.order_by(order_by)
-    except:
+    except KeyError:
         pass
         
-    return [f.name for f, value in filter_fields], SortedDict(filter_fields), matches
+    return [f.name for f, value in filter_fields], OrderedDict(filter_fields), matches
 
 def assign_code(instance, queryset=None, code_field_name='code', order_field_name='created'):
-    """Assignes an incremental code to the given model instance.
-    """
     from datetime import date
 
     if not isinstance(queryset, query.QuerySet):
@@ -196,8 +149,8 @@ def assign_code(instance, queryset=None, code_field_name='code', order_field_nam
         year = date.today().year
         uid = 1
         try:
-            last_obj = queryset.filter(**{'%s__endswith' % code_field_name: '-%s' % year}).latest(order_field_name)
+            last_obj = queryset.filter(**{f'{code_field_name}__endswith': f'-{year}'}).latest(order_field_name)
             uid = int(getattr(last_obj, code_field_name).partition('-')[0]) + 1
-        except:
+        except queryset.model.DoesNotExist:
             pass
-        setattr(instance, code_field_name, '%d-%s' % (uid, year))
+        setattr(instance, code_field_name, f'{uid}-{year}')

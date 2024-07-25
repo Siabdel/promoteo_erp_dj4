@@ -254,8 +254,8 @@ INSTALLED_APPS = (
     "django_extensions",
     
     'django.contrib.admindocs',
-    'fluent_comments',
-    'django_comments_xtd',
+    #'fluent_comments',
+    #'django_comments_xtd',
     'django_comments',
     'django.contrib.redirects',
     #
@@ -267,7 +267,7 @@ INSTALLED_APPS = (
     'core.widgets',
     'core.menus',
     'core.taxonomy',
-    'core.authorize',
+    #'core.authorize',
     #'core.registration',
     
     'core.calendar',

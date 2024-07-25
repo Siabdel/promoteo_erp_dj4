@@ -1,0 +1,9 @@
+from django.apps import AppConfig
+
+
+class AuthorizeConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "authorize"
+
+    def ready(self):
+        import core.authorize.signals  # noqa F401

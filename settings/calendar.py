@@ -33,5 +33,5 @@ EVENT_STATUS_CHOICES = (
 EVENT_DEFAULT_STATUS = 'CONFIRMED'
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += (
-    '.core.calendar.context_processors.today',
+    'core.calendar.context_processors.today',
 )
